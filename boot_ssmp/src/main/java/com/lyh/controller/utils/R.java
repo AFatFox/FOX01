@@ -13,16 +13,11 @@ import lombok.Data;
 public class R {
     private Boolean flag;
     private Object data;
-
-//    若出现异常，则用于记录异常信息
+//    这个属性用于记录操作的状态，执行成功则返回成功，失败则返回失败或失败的原因
     private String msg;
 
     public R() {}
 
-//    这个构造方法用于增删改
-    public R(Boolean flag) {
-        this.flag = flag;
-    }
 
 //    这个用于查找
 //    查找中的flag仅用于判断系统是否出现异常
@@ -31,13 +26,13 @@ public class R {
         this.data = object;
     }
 
-//    为实现信息的统一处理，可以
+//    这个构造方法用于增删改,未出现异常则进入这里
     public R(Boolean flag, String msg){
-        this.flag=true;
+        this.flag=flag;
         this.msg=msg;
     }
 
-//    用于出现异常，则用这个构造函数
+//    用于出现异常，则用到这个构造函数
     public R(String msg){
         this.flag=false;
         this.msg=msg;
