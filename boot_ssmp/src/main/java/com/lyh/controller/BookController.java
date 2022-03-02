@@ -21,7 +21,7 @@ public class BookController {
 
     @GetMapping
     public R GetAll(){
-        return new R(true,bookService.list());
+        return new R(bookService.list(),true);
     }
 
     @PutMapping
@@ -53,13 +53,13 @@ public class BookController {
 //            若大于，将当前页设置为最大页再按照分页操作进行一次查询
             page=bookService.getPage((int) page.getPages(),pageSize,book);
         }
-        return new R(true,page);
+        return new R(page,true);
     }
 
     @GetMapping("{id}")
 //    @PathVariable是spring3.0的一个新功能：接收请求路径中占位符的值，即路径变量
     public R getById(@PathVariable Integer id){
-        return new R(true,bookService.getById(id));
+        return new R(bookService.getById(id),true);
     }
 //    @GetMapping("{currentPage}/{pageSize}")
 //    public R getPage(@PathVariable int currentPage,@PathVariable int pageSize){
