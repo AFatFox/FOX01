@@ -18,10 +18,10 @@ public class R {
 
     public R() {}
 
-
 //    这个用于查找
 //    查找中的flag仅用于判断系统是否出现异常
-    public R(Boolean flag, Object object) {
+//    这里把两个参数的顺序替换，是为了防止当传入的形参是字符串的时候进入下面的那个构造方法中
+    public R(Object object,Boolean flag) {
         this.flag = flag;
         this.data = object;
     }
