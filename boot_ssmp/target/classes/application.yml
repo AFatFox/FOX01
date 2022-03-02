@@ -1,0 +1,20 @@
+server:
+  port: 80
+
+spring:
+  datasource:  #设置数据源
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/boot?serverTimezone=UTC
+      username: root
+      password: root
+
+
+mybatis-plus:
+  global-config:
+    db-config:
+      table-prefix: tbl_  #设置表名前缀
+      id-type: auto    #设置当对实体类用到主键的地方，用主键自增的方式
+
+  configuration:    #设置MP的日志，下面是表示设置在控制台上标准输出
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
